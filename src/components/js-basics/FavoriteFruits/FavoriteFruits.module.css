@@ -1,0 +1,30 @@
+.button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.fruitList {
+  padding: 0;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 300px;
+  margin-top: 2rem;
+}
+
+.listItem {
+  font-size: 2rem;
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+  transition: background-color 0.3s;
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+.listItem:hover {
+  background-color: #f0f0f0;
+}

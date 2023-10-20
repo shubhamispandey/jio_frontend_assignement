@@ -1,0 +1,22 @@
+/* ColorSelector.module.css */
+
+.container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.select {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.colorDisplay {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border: 1px solid #cccccc;
+}
+
+.colorOption {
+  font-weight: bold;
+}
