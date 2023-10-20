@@ -21,28 +21,48 @@ export default function Home() {
               <input type="text" id="surveyname" placeholder="Name" />
               <label htmlFor="surveyname">Name</label>
               <div className={styles.input__icon}>
-                <Image src={images.formName} />
+                <Image
+                  alt="formIcon"
+                  width={20}
+                  height={20}
+                  src={images.formName}
+                />
               </div>
             </div>
             <div className={styles.form_group}>
               <input type="email" id="surveyemail" placeholder="E-mail" />
               <label htmlFor="surveyemail">E-mail</label>
               <div className={styles.input__icon}>
-                <Image src={images.formEmail} />
+                <Image
+                  alt="formIcon"
+                  width={20}
+                  height={20}
+                  src={images.formEmail}
+                />
               </div>
             </div>
             <div className={styles.form_group}>
               <input type="number" id="surveynumber" placeholder="Age" />
               <label htmlFor="surveynumber">Age</label>
               <div className={styles.input__icon}>
-                <Image src={images.formAge} />
+                <Image
+                  alt="formIcon"
+                  width={20}
+                  height={20}
+                  src={images.formAge}
+                />
               </div>
             </div>
             <div className={styles.form_group}>
               <textarea id="surveyComments" placeholder="Comments" />
               <label htmlFor="surveyComments">Comments</label>
               <div className={styles.input__icon}>
-                <Image src={images.formComment} />
+                <Image
+                  alt="formIcon"
+                  width={20}
+                  height={20}
+                  src={images.formComment}
+                />
               </div>
             </div>
           </form>

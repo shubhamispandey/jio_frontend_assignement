@@ -10,7 +10,7 @@ function Navigation() {
   const path = usePathname();
   const { navigation } = staticData;
   const [toggleNavMobile, setToggleNavMobile] = useState(false);
-
+  return <></>;
   return (
     <div className={styles.navigation}>
       <div className={styles.navigation__logo}>
