@@ -1,11 +1,25 @@
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import PageSpinner from "@/components/PageSpinner/PageSpinner";
 import staticData from "@/utils/staticData";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
   const {
     form: { images },
   } = staticData;
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1500);
+    return () => clearTimeout(timer); // Clear the timer on unmount
+  }, []);
+
+  if (isLoading) {
+    return <PageSpinner />;
+  }
+
   return (
     <main className={styles.main}>
       <div className={styles.survey}>
@@ -17,57 +31,41 @@ export default function Home() {
           <p className={styles.text}>See your Growth and get Support</p>
           <div className={styles.break} />
           <form className={styles.form}>
-            <div className={styles.form_group}>
-              <input type="text" id="surveyname" placeholder="Name" />
-              <label htmlFor="surveyname">Name</label>
-              <div className={styles.input__icon}>
-                <Image
-                  alt="formIcon"
-                  width={20}
-                  height={20}
-                  src={images.formName}
-                />
-              </div>
-            </div>
-            <div className={styles.form_group}>
-              <input type="email" id="surveyemail" placeholder="E-mail" />
-              <label htmlFor="surveyemail">E-mail</label>
-              <div className={styles.input__icon}>
-                <Image
-                  alt="formIcon"
-                  width={20}
-                  height={20}
-                  src={images.formEmail}
-                />
-              </div>
-            </div>
-            <div className={styles.form_group}>
-              <input type="number" id="surveynumber" placeholder="Age" />
-              <label htmlFor="surveynumber">Age</label>
-              <div className={styles.input__icon}>
-                <Image
-                  alt="formIcon"
-                  width={20}
-                  height={20}
-                  src={images.formAge}
-                />
-              </div>
-            </div>
-            <div className={styles.form_group}>
-              <textarea id="surveyComments" placeholder="Comments" />
-              <label htmlFor="surveyComments">Comments</label>
-              <div className={styles.input__icon}>
-                <Image
-                  alt="formIcon"
-                  width={20}
-                  height={20}
-                  src={images.formComment}
-                />
-              </div>
-            </div>
+            {renderFormInput("Name", "surveyname", images.formName)}
+            {renderFormInput("E-mail", "surveyemail", images.formEmail)}
+            {renderFormInput("Age", "surveynumber", images.formAge)}
+            {renderFormTextarea(
+              "Comments",
+              "surveyComments",
+              images.formComment
+            )}
           </form>
         </div>
       </div>
     </main>
+  );
+}
+
+function renderFormInput(label, id, src) {
+  return (
+    <div className={styles.form_group}>
+      <input type="text" id={id} placeholder={label} />
+      <label htmlFor={id}>{label}</label>
+      <div className={styles.input__icon}>
+        <Image alt="formIcon" width={20} height={20} src={src} />
+      </div>
+    </div>
+  );
+}
+
+function renderFormTextarea(label, id, src) {
+  return (
+    <div className={styles.form_group}>
+      <textarea id={id} placeholder={label} />
+      <label htmlFor={id}>{label}</label>
+      <div className={styles.input__icon}>
+        <Image alt="formIcon" width={20} height={20} src={src} />
+      </div>
+    </div>
   );
 }

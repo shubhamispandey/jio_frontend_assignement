@@ -1,0 +1,19 @@
+.page-spinner {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  height: 100vh;
+  background: rgba(255, 255, 255);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.page-spinner img {
+  position: relative;
+  left: 0.8rem;
+}
